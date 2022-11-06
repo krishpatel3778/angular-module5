@@ -1,0 +1,59 @@
+<fieldset>
+  <legend>Sign-up!</legend>
+  <form name='regForm' novalidate>
+
+    <input type="text" name="first_name" placeholder="First Name"
+      ng-model="reg.user.first_name"
+      required
+      >
+    <span
+      ng-if="regForm.first_name.$error.required && regForm.first_name.$touched">
+      First name is required
+    </span>
+      <br>
+    <input type="text" name="last_name" placeholder="Last Name"
+      ng-model="reg.user.last_name"
+      required
+      >
+      <span
+        ng-if="regForm.last_name.$error.required && regForm.last_name.$touched">
+        Last Name is Required
+      </span>
+      <br>
+    <input type="email" name="email" placeholder="Email"
+      ng-model="reg.user.email"
+      required>
+      <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+        Must be a valid email address: handle@domain format
+      </span>
+      <br>
+    <input type="text" name="phone" placeholder="Phone ###-###-####"
+      ng-model="reg.user.phone"
+      pattern="(\d{3})-(\d{3})-(\d{4})"
+      required>
+      <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+        Phone must be in the format ###-###-####.
+      </span>
+      <br>
+      <input type="text" name="favorite_item" placeholder="Favorite Item short_name"
+        ng-model="reg.user.favorite_item"
+        required>
+        <span class="errorSubmit" ng-if="reg.itemError">
+          No item found with associated short_name. Submission Unsuccessfull, try again!
+        </span>
+      <br>
+      <div class="submitted" ng-if="reg.readyToSubmit&&!regForm.$invalid">
+        Ready to Submit!
+      </div>
+    <button
+      ng-disabled="!reg.readyToSubmit||regForm.$invalid"
+      ng-hide="reg.alreadyRegistered||reg.completed"
+      ng-click="reg.submit()">Submit</button>
+  </form>
+</fieldset>
+<div class="submitted" ng-if="reg.completed">
+  Successfully submitted!
+</div>
+<div class="submitted" ng-if="reg.alreadyRegistered">
+  You are already registered!
+</div>

@@ -1,0 +1,11 @@
+<div class="errorSubmit"  ng-hide="myInfo.registered">
+  <p>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></p>
+</div>
+<div class="container" id="info" ng-if="myInfo.registered">
+  First Name: {{ myInfo.info.first_name}} <br>
+  Last Name: {{ myInfo.info.last_name}} <br>
+  Email: {{ myInfo.info.email}} <br>
+  Phone: {{ myInfo.info.phone }}<br>
+  Your favorite item:<br>
+  <menu-item menu-item="myInfo.item"></menu-item>
+</div>
