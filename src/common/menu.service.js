@@ -10,7 +10,9 @@ function MenuService($http, ApiPath) {
   var service = this;
 
   service.getCategories = function () {
-    return $http.get(ApiPath + '/categories.json').then(function (response) {
+    //ApiPath + '/categories.json'
+    return $http.get('https://www.freepatentsonline.com/result.html?p=1&edit_alert=&srch=xprtsrch&query_txt=PEX%2Fsmith+AND+ABST%2FGlass%0D%0A&uspat=on&date_range=all&stemming=on&sort=relevance&search=Search').then(function (response) {
+      console.log(response.data)
       return response.data;
     });
   };
@@ -33,7 +35,7 @@ function MenuService($http, ApiPath) {
     })
     .catch(error=>{
       return "error";
-    })
+    })rights
   };
 
 }
