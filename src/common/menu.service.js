@@ -10,7 +10,7 @@ function MenuService($http, ApiPath) {
   var service = this;
 
   service.getCategories = function () {
-    return $http.get(ApiPath + 'categories.json').then(function (response) {
+    return $http.get(ApiPath + '/categories.json').then(function (response) {
       console.log("here")
       console.log(response.data)
       return response.data;
@@ -39,7 +39,4 @@ function MenuService($http, ApiPath) {
   };
 
 }
-
-
-
 })();
