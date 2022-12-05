@@ -10,8 +10,8 @@ function MenuService($http, ApiPath) {
   var service = this;
 
   service.getCategories = function () {
+    console.log("Making the request");
     return $http.get(ApiPath + '/categories.json').then(function (response) {
-      console.log("here")
       console.log(response.data)
       return response.data;
     });
